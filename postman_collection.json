@@ -1,0 +1,128 @@
+{
+  "info": {
+    "name": "TechStore - CRUD Produtos",
+    "_postman_id": "b8f2e6c0-1a2d-4e6a-9b3f-e6c0d4a2f1b7",
+    "description": "Coleção de testes dos endpoints da API local (backend/src/server.js) usados na integração com o ProdutoService do Angular.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Listar produtos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/products",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "products"]
+        }
+      }
+    },
+    {
+      "name": "Buscar produto por id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/products/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "products", "1"]
+        }
+      }
+    },
+    {
+      "name": "Cadastrar produto",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Mouse Gamer RGB\",\n  \"descricao\": \"Mouse óptico com sensor de alta precisão e iluminação RGB.\",\n  \"categoria\": \"Periféricos\",\n  \"preco\": 199.9,\n  \"imagem\": \"https://images.unsplash.com/photo-1527814050087-3793815479db\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/products",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "products"]
+        }
+      }
+    },
+    {
+      "name": "Atualizar produto",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Mouse Gamer RGB\",\n  \"descricao\": \"Mouse óptico com sensor de alta precisão e iluminação RGB.\",\n  \"categoria\": \"Periféricos\",\n  \"preco\": 179.9,\n  \"imagem\": \"https://images.unsplash.com/photo-1527814050087-3793815479db\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/products/7",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "products", "7"]
+        }
+      }
+    },
+    {
+      "name": "Excluir produto",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/products/7",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "products", "7"]
+        }
+      }
+    },
+    {
+      "name": "Cadastrar produto (dados inválidos)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"descricao\": \"Produto sem nome e preço\",\n  \"categoria\": \"Testes\",\n  \"preco\": 10\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/products",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "products"]
+        },
+        "description": "Deve retornar 400 - dados inválidos."
+      }
+    },
+    {
+      "name": "Buscar produto inexistente",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/products/999",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "products", "999"]
+        },
+        "description": "Deve retornar 404 - produto não encontrado."
+      }
+    }
+  ]
+}
